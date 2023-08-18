@@ -31,7 +31,7 @@
 
         body {
             /* background-image: url('templates/TheGreatWall_HaoWei.jpg'); */
-            background-image: url('TheGreatWall_HaoWei.jpg');
+            /* background-image: url('TheGreatWall_HaoWei.jpg'); */
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -72,7 +72,7 @@
         </div>
         <div>
             <label><input type="checkbox" id="showPinyin" checked> Show Pinyin</label>
-            <label><input type="checkbox" id="showTranslation" checked> Show English Translation</label>
+            <!--<label><input type="checkbox" id="showTranslation" checked> Show English Translation</label>-->
             <label><input type="checkbox" id="showSimplified" checked> Show Simplified Characters</label>
         </div>
     
@@ -116,16 +116,16 @@
                 
                 let gptResponse = `<p><FONT COLOR="5E0202"><strong>[${currentTime} - GPT-3]:</strong>`;
 
-                if (showTranslation && data.chinese) {
+                // if (showTranslation && data.chinese) {
+                //     gptResponse += ` <br><strong>中文: </strong>${data.chinese}`;
+                // }
+
+                if (data.chinese) {
                     gptResponse += ` <br><strong>中文: </strong>${data.chinese}`;
                 }
 
                 if (showPinyin && data.pinyin) {
                     gptResponse += ` <br><strong>Pīnyīn: </strong>${data.pinyin}`;
-                }
-
-                if (showSimplified && data.simplified) {
-                    gptResponse += ` <br><strong>Traditional: </strong>${data.traditional}`;
                 }
                 
                 gptResponse += `</p>`;

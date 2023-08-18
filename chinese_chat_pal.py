@@ -8,7 +8,7 @@ import logging
 app = Flask(__name__)
 
 # Set API key
-openai.api_key = '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'
+openai.api_key = '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'
 
 messages = [{"role": "system", "content": "You are a helpful assistant."}]
 
@@ -28,26 +28,29 @@ def index():
 @app.route('/ask', methods=['POST'])
 def ask():
     user_input = request.form['user_message']
-    translation, pinyin = True, True
 
-    if 'toggle pinyin' in user_input.lower():
-        pinyin = not pinyin
+    # User-selected options
+    show_pinyin = request.json['show_pinyin']
+    # show_translation = request.json['show_translation']
+    show_simplified = request.json['show_simplified']
 
-    if 'toggle translation' in user_input.lower():
-        translation = not translation
+    # if 'toggle pinyin' in user_input.lower():
+    #     pinyin = not pinyin
 
-    instruction = "Please respond in Simplified Mandarin."
+
+    chinese_char_style = 'Simplified' if show_simplified else 'Traditional'
+
+    instruction = "Please respond in " + chinese_char_style + " Mandarin."
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages + [{"role": "user", "content": user_input + f' ({instruction})'}]
     )
 
-    answer = response.choices[0].message['content']
-    messages.append({"role": "assistant", "content": answer})
+    answer_chinese = response.choices[0].message['content']
+    messages.append({"role": "assistant", "content": answer_chinese})
 
-    answer_chinese = answer
-    answer_pinyin = chinese_to_pinyin(answer)
+    answer_pinyin = chinese_to_pinyin(answer_chinese)
 
     return jsonify({'chinese': answer_chinese, 'pinyin': answer_pinyin})
 
