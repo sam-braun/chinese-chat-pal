@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT-3 Chatbot</title>
+    <style>
+        #container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #chatSection, #noteSection {
+            width: 45%;
+        }
+
+        textarea, button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>GPT-3 Chatbot</h1>
+
+    <div id="container">
+        <!-- Chat Section -->
+        <div id="chatSection">
+            <h3>Chat:</h3>
+            <div id="chatbox"></div>
+
+            <textarea id="userMessage" rows="4" placeholder="Type your message..."></textarea><br><br>
+            <button onclick="sendMessage()">Send Message</button>
+        </div>
+
+        <!-- Notebook Section -->
+        <div id="noteSection">
+            <h3>Notes:</h3>
+            <div id="notesbox"></div>
+
+            <textarea id="userNote" rows="4" placeholder="Type your note..."></textarea><br><br>
+            <button onclick="addNote()">Add Note</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userMessage = document.getElementById("userMessage").value;
+            const chatbox = document.getElementById("chatbox");
+            const currentTime = new Date().toLocaleTimeString();
+            chatbox.innerHTML += `<p><strong>[${currentTime} - You]:</strong> ${userMessage}</p>`;
+            document.getElementById("userMessage").value = "";
+
+            // Send user message to backend for GPT-3 response
+            fetch('/ask', {
+                method: 'POST',
+                body: new URLSearchParams({ 'user_message': userMessage }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const currentTime = new Date().toLocaleTimeString();
+                chatbox.innerHTML += `<p><strong>[${currentTime} - GPT-3]:</strong> ${data.response}</p>`;
+            });
+        }
+
+        function addNote() {
+            const userNote = document.getElementById("userNote").value;
+            if(userNote) {
+                const notesbox = document.getElementById("notesbox");
+                const currentTime = new Date().toLocaleTimeString();
+                notesbox.innerHTML += `<p><strong>[${currentTime}]:</strong> ${userNote}</p>`;
+                document.getElementById("userNote").value = ""; // Clear the note box
+            }
+        }
+    </script>
+</body>
+</html>
