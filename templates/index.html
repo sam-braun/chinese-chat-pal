@@ -3,29 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPT-3 Chatbot</title>
+    <title>Chinese Chat Pal!</title>
     <style>
         #container {
             display: flex;
             justify-content: space-around;
         }
 
-        #chatSection, #noteSection {
-            width: 45%;
+        #chatSection {
+            width: 60%;
         }
 
-        textarea, button {
-            width: 100%;
+        #noteSection {
+            width: 30%;
         }
+
+        textarea {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        button {
+            width: 30%;
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+
+        body {
+            background-image: url('TheGreatWall_HaoWei.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-color: #ffae00;
+        }
+
+        #chatbox {
+            max-height: 400px;
+            overflow-y: auto;
+            font-size: 18px;
+            /* border: 1px solid #ccc; */
+            padding: 10px;
+        }
+
+        #notesbox {
+            max-height: 400px;
+            overflow-y: auto;
+            font-size: 18px;
+            /* border: 1px solid #ccc; */
+            padding: 10px;
+        }
+
+
     </style>
 </head>
 <body>
-    <h1>GPT-3 Chatbot</h1>
+    <h1>Chinese Chat Pal!</h1>
 
     <div id="container">
         <!-- Chat Section -->
         <div id="chatSection">
-            <h3>Chat:</h3>
+            <h3>Conversation with your Chinese Chat Pal</h3>
             <div id="chatbox"></div>
 
             <textarea id="userMessage" rows="4" placeholder="Type your message..."></textarea><br><br>
@@ -34,11 +72,11 @@
 
         <!-- Notebook Section -->
         <div id="noteSection">
-            <h3>Notes:</h3>
+            <h3>Notesbook</h3>
             <div id="notesbox"></div>
 
             <textarea id="userNote" rows="4" placeholder="Type your note..."></textarea><br><br>
-            <button onclick="addNote()">Add Note</button>
+            <button onclick="addNote()">Jot Down</button>
         </div>
     </div>
 
@@ -47,7 +85,7 @@
             const userMessage = document.getElementById("userMessage").value;
             const chatbox = document.getElementById("chatbox");
             const currentTime = new Date().toLocaleTimeString();
-            chatbox.innerHTML += `<p><strong>[${currentTime} - You]:</strong> ${userMessage}</p>`;
+            chatbox.innerHTML += `<p><strong>[${currentTime} - You]:</strong>${userMessage}</p>`;
             document.getElementById("userMessage").value = "";
 
             // Send user message to backend for GPT-3 response
@@ -71,6 +109,7 @@
                 document.getElementById("userNote").value = ""; // Clear the note box
             }
         }
+        
     </script>
 </body>
 </html>
