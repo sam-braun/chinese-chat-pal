@@ -11,6 +11,12 @@
             align-items: center;
             gap: 10px;
         }
+
+        .inputGroup {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
         
         #container {
             display: flex;
@@ -29,6 +35,8 @@
             width: 70%;
             font-size: 18px;
             resize: vertical;
+            flex-grow: 1;
+            margin-right: 10px;
         }
 
         button {
@@ -45,6 +53,19 @@
             background-attachment: fixed;
             background-position: center center;
             background-color: #ffae00;
+        }
+
+        .checkboxes {
+            margin: 10px 0; 
+            height: 40px;
+        }
+
+        .chatHeading {
+            height: 30px;
+        }
+
+        .notesHeading {
+            height: 70px; 
         }
 
         #chatbox {
@@ -72,29 +93,32 @@
     <div id="container">
         <!-- Chat Section -->
         <div id="chatSection">
-            <h3>Conversation with your Chinese Chat Pal</h3>
-            <div id="chatbox"></div>
-            <div class="inputWrapper">
-                <textarea id="userMessage" rows="4" placeholder="你的短信……"></textarea>
-                <button onclick="sendMessage()">Send Message</button>
+            <h3 class="chatHeading">Conversation with your Chinese Chat Pal</h3>
+    
+            <!-- Checkbox Section -->
+            <div class="checkboxes">
+                <label><input type="checkbox" id="showPinyin" checked> Show Pinyin</label>
+                <label><input type="checkbox" id="showSimplified" checked> Show Simplified Characters</label>
             </div>
+    
+            <div id="chatbox"></div>
+            <div class="inputGroup">
+                <textarea id="userMessage" rows="4" placeholder="Type your message..."></textarea>
+                <button onclick="sendMessage()">✈</button>
+            </div>            
         </div>
-
-        <div>
-            <label><input type="checkbox" id="showPinyin" checked> Show Pinyin</label>
-            <label><input type="checkbox" id="showSimplified" checked> Show Simplified Characters</label>
-        </div>
-
+    
         <!-- Notebook Section -->
         <div id="noteSection">
-            <h3>Notesbook</h3>
+            <h3 class="notesHeading">Notesbook</h3>
             <div id="notesbox"></div>
-            <div class="inputWrapper">
+            <div class="inputGroup">
                 <textarea id="userNote" rows="4" placeholder="Type your note..."></textarea>
-                <button onclick="addNote()">Jot Down</button>
+                <button onclick="addNote()">✏</button>
             </div>
         </div>
     </div>
+    
 
     <script>
 
