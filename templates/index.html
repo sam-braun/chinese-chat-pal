@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chinese Chat Pal!</title>
     <style>
+        .inputWrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        
         #container {
             display: flex;
             justify-content: space-around;
@@ -19,12 +26,13 @@
         }
 
         textarea {
-            width: 100%;
+            width: 70%;
             font-size: 18px;
+            resize: vertical;
         }
 
         button {
-            width: 30%;
+            width: 25%;
             font-size: 18px;
             padding: 15px 30px;
         }
@@ -66,8 +74,10 @@
         <div id="chatSection">
             <h3>Conversation with your Chinese Chat Pal</h3>
             <div id="chatbox"></div>
-            <textarea id="userMessage" rows="4" placeholder="Type your message..."></textarea><br><br>
-            <button onclick="sendMessage()">Send Message</button>
+            <div class="inputWrapper">
+                <textarea id="userMessage" rows="4" placeholder="你的短信……"></textarea>
+                <button onclick="sendMessage()">Send Message</button>
+            </div>
         </div>
 
         <div>
@@ -79,12 +89,29 @@
         <div id="noteSection">
             <h3>Notesbook</h3>
             <div id="notesbox"></div>
-            <textarea id="userNote" rows="4" placeholder="Type your note..."></textarea><br><br>
-            <button onclick="addNote()">Jot Down</button>
+            <div class="inputWrapper">
+                <textarea id="userNote" rows="4" placeholder="Type your note..."></textarea>
+                <button onclick="addNote()">Jot Down</button>
+            </div>
         </div>
     </div>
 
     <script>
+
+        document.getElementById("userMessage").addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        });
+
+        document.getElementById("userNote").addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                addNote();
+            }
+        });
+        
         function sendMessage() {
             const userMessage = document.getElementById("userMessage").value;
             const chatbox = document.getElementById("chatbox");
