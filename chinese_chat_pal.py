@@ -8,11 +8,11 @@ import logging
 app = Flask(__name__)
 
 # Set API key
-openai.api_key = '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'
+openai.api_key = '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'
 
 messages = [{"role": "system", "content": "You are a helpful assistant."}]
 
-def write_pinyin(chinese_text):
+def chinese_to_pinyin(chinese_text):
     logging.getLogger('jieba').setLevel(logging.ERROR)
 
     # Use jieba to segment the Chinese text
@@ -46,8 +46,8 @@ def ask():
     answer = response.choices[0].message['content']
     messages.append({"role": "assistant", "content": answer})
 
-    answer_chinese = "中文: " + answer
-    answer_pinyin = "Pīnyīn: " + write_pinyin(answer)
+    answer_chinese = answer
+    answer_pinyin = chinese_to_pinyin(answer)
 
     return jsonify({'chinese': answer_chinese, 'pinyin': answer_pinyin})
 
