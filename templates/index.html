@@ -58,7 +58,7 @@
             .then(response => response.json())
             .then(data => {
                 const currentTime = new Date().toLocaleTimeString();
-                chatbox.innerHTML += `<p><strong>[${currentTime} - GPT-3]:</strong> ${data.response}</p>`;
+                chatbox.innerHTML += `<p><strong>[${currentTime} - GPT-3]:</strong> ${data.chinese} <br> ${data.pinyin}</p>`;
             });
         }
 

@@ -8,7 +8,7 @@ import logging
 app = Flask(__name__)
 
 # Set API key
-openai.api_key = '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'
+openai.api_key = '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'
 
 messages = [{"role": "system", "content": "You are a helpful assistant."}]
 
@@ -46,10 +46,10 @@ def ask():
     answer = response.choices[0].message['content']
     messages.append({"role": "assistant", "content": answer})
 
-    formatted_answer = "中文: " + answer + "\nPīnyīn: " + write_pinyin(answer) 
+    answer_chinese = "中文: " + answer
+    answer_pinyin = "Pīnyīn: " + write_pinyin(answer)
 
-    timestamp = datetime.now().strftime('%H:%M:%S')
-    return jsonify({'response': formatted_answer, 'timestamp': timestamp})
+    return jsonify({'chinese': answer_chinese, 'pinyin': answer_pinyin})
 
 if __name__ == '__main__':
     app.run(debug=True)
