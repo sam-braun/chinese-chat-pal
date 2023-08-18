@@ -66,23 +66,19 @@
         <div id="chatSection">
             <h3>Conversation with your Chinese Chat Pal</h3>
             <div id="chatbox"></div>
-
             <textarea id="userMessage" rows="4" placeholder="Type your message..."></textarea><br><br>
             <button onclick="sendMessage()">Send Message</button>
         </div>
+
         <div>
             <label><input type="checkbox" id="showPinyin" checked> Show Pinyin</label>
-            <!--<label><input type="checkbox" id="showTranslation" checked> Show English Translation</label>-->
             <label><input type="checkbox" id="showSimplified" checked> Show Simplified Characters</label>
         </div>
-    
-        <div id="chatbox"></div>
 
         <!-- Notebook Section -->
         <div id="noteSection">
             <h3>Notesbook</h3>
             <div id="notesbox"></div>
-
             <textarea id="userNote" rows="4" placeholder="Type your note..."></textarea><br><br>
             <button onclick="addNote()">Jot Down</button>
         </div>
@@ -92,11 +88,13 @@
         function sendMessage() {
             const userMessage = document.getElementById("userMessage").value;
             const chatbox = document.getElementById("chatbox");
+            const showPinyin = document.getElementById("showPinyin").checked;
+            const showSimplified = document.getElementById("showSimplified").checked;
+
             const currentTime = new Date().toLocaleTimeString();
             chatbox.innerHTML += `<p><strong>[${currentTime} - You]:</strong>${userMessage}</p>`;
             document.getElementById("userMessage").value = "";
 
-            // Send user message to backend for GPT-3 response
             fetch('/ask', {
                 method: 'POST',
                 headers: {
@@ -105,20 +103,18 @@
                 body: JSON.stringify({
                     'user_message': userMessage,
                     'show_pinyin': showPinyin,
-                    'show_translation': showTranslation,
-                    'show_Simplified': showSimplified
+                    'show_simplified': showSimplified
                 })
             })
             .then(response => response.json())
             .then(data => {
-                const currentTime = new Date().toLocaleTimeString();
-                //chatbox.innerHTML += `<p><FONT COLOR="5E0202"><strong>[${currentTime} - GPT-3]:</strong> <br><strong>中文: </strong>${data.chinese} <br><strong>Pīnyīn: </strong>${data.pinyin}</p>`;
+                if (data.error) {
+                    console.error(data.error);
+                    return;
+                }
                 
+                const currentTime = new Date().toLocaleTimeString();
                 let gptResponse = `<p><FONT COLOR="5E0202"><strong>[${currentTime} - GPT-3]:</strong>`;
-
-                // if (showTranslation && data.chinese) {
-                //     gptResponse += ` <br><strong>中文: </strong>${data.chinese}`;
-                // }
 
                 if (data.chinese) {
                     gptResponse += ` <br><strong>中文: </strong>${data.chinese}`;
@@ -127,7 +123,7 @@
                 if (showPinyin && data.pinyin) {
                     gptResponse += ` <br><strong>Pīnyīn: </strong>${data.pinyin}`;
                 }
-                
+
                 gptResponse += `</p>`;
                 chatbox.innerHTML += gptResponse;
             });
@@ -142,7 +138,6 @@
                 document.getElementById("userNote").value = ""; // Clear the note box
             }
         }
-        
     </script>
 </body>
 </html>
