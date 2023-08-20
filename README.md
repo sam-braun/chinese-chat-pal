@@ -4,13 +4,13 @@
 
 - [Overview](#overview)
 - [Installation](#installation)
-- [NYT Chatbot](#nyt-chatbot)
-  - [Description](#description)
-  - [Usage](#usage)
 - [OpenAI API Chatbot](#openai-api-chatbot)
-  - [Description](#description-1)
-  - [Usage](#usage-1)
-- [Contributing](#contributing)
+  - [Description](#description-open)
+  - [Usage](#usage-open)
+- [NYT Chatbot](#nyt-chatbot)
+  - [Description](#description-nyt)
+  - [Usage](#usage-nyt)
+- [Credits](#credits)
 - [License](#license)
 
 ## Overview
@@ -22,14 +22,28 @@ This project explores building two different chatbots used to practice Chinese-l
 1. Clone the repository: `git clone https://github.com/sam-braun/chinese-chat-pal.git`
 2. Install dependencies: `pip install requirements.txt`
 
+## OpenAI API Chatbot
+
+### Description
+
+This chatbot utilizes OpenAI's GPT-3.5 Turbo LLM via OpenAI's API and translates text into either simplified or traditional Mandarin Chinese (with the option of an added English transliteration in pinyin). User can also  This Chatbot is accessed via a web interface.
+
+
+
+
+
+
+
+
 ## NYT Chatbot
 
 ### Description
 
-This chatbot is powered by text data from the New York Times. By leveraging article content, headlines, and other available data, it provides users with information and summaries about various topics. Text data preprocessing (removing punctuation and stopwards, tokenization, lemmatization) is handled by the exploratory Jupyter Notebooks. **chinese_gpt2_train.py** is based on code written by [Dinne Bosman](https://dwjbosman.github.io/chatbot-using-open-ai-gpt-2-transformer-model/) and [Keisuke Sato](https://dev.to/ksk0629/my-own-chatbot-by-fine-tuning-gpt-2-m0n).
+This chatbot is powered by text data retrived from the New York Times Archive API. Text data preprocessing (removing punctuation and stopwards, tokenization, lemmatization) is handled by the exploratory Jupyter Notebooks. **chinese_gpt2_train.py** is based on code written by [Dinne Bosman](https://dwjbosman.github.io/chatbot-using-open-ai-gpt-2-transformer-model/) and [Keisuke Sato](https://dev.to/ksk0629/my-own-chatbot-by-fine-tuning-gpt-2-m0n). This chatbot is access through the command line.
 
 ### Usage
 
 - Create your own New York Times API key. To find more information about the New York Times's API, please visit [New York Times Dev Portal](https://developer.nytimes.com).
-- Run the following command in the **chatbot-training** directory to start the NYT chatbot: `python chinese_gpt2_train.py`
-
+- Text data can only be accessed in batches, so adjustments should be made to the first cell of **ProjectA1i_NYT.ipynb**.
+- Run the following command in the **chatbot-training** directory to start training the NYT GPT-2 model: `python chinese_gpt2_train.py`. Once complete, an executable **./nyt_gpt2_model** will be produced. 
+- Run the following command in the **chatbot-training** directory to start chatting with the NYT chatbot: `python nyt_chatbot.py`
