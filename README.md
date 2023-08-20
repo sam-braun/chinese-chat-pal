@@ -28,10 +28,10 @@ This project explores building two different chatbots used to practice Chinese-l
 
 This chatbot utilizes OpenAI's GPT-3.5 Turbo LLM via OpenAI's API and translates text into either simplified or traditional Mandarin Chinese (with the option of an added English transliteration in pinyin). User can also  This Chatbot is accessed via a web interface.
 
+### Usage
 
-
-
-
+- Create your own OpenAI API key by making an [OpenAI](https://platform.openai.com/docs/api-reference/introduction) developer account.
+- Run the following command in the **gpt3.5-chatbot** directory to start the OpenAI chatbot: `python chinese_chat_pal.py`
 
 
 
@@ -43,7 +43,7 @@ This chatbot is powered by text data retrived from the New York Times Archive AP
 
 ### Usage
 
-- Create your own New York Times API key. To find more information about the New York Times's API, please visit [New York Times Dev Portal](https://developer.nytimes.com).
+- Create your own New York Times API key by making a [New York Times Dev Portal](https://developer.nytimes.com) account.
 - Text data can only be accessed in batches, so adjustments should be made to the first cell of **ProjectA1i_NYT.ipynb**.
-- Run the following command in the **chatbot-training** directory to start training the NYT GPT-2 model: `python chinese_gpt2_train.py`. Once complete, an executable **./nyt_gpt2_model** will be produced. 
-- Run the following command in the **chatbot-training** directory to start chatting with the NYT chatbot: `python nyt_chatbot.py`
+- Run the following command in the **chatbot-training** directory to start training the NYT GPT-2 model: `python chinese_gpt2_train.py`. Once complete, an executable **./nyt_gpt2_model** will be produced.
+- Run the following command in the **chatbot-training** directory to start your NYT chatbot: `python nyt_chatbot.py`
