@@ -38,5 +38,5 @@ trainer = Trainer(
 trainer.train()
 
 # Save the trained model
-model.save_pretrained('./my_gpt2_model')
-tokenizer.save_pretrained('./my_gpt2_model')
+model.save_pretrained('./nyt_gpt2_model')
+tokenizer.save_pretrained('./nyt_gpt2_model')
