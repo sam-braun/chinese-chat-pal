@@ -26,10 +26,10 @@ This project explores building two different chatbots used to practice Chinese-l
 
 ### Description
 
-This chatbot is powered by text data from the New York Times. By leveraging article content, headlines, and other available data, it provides users with information and summaries about various topics. Text data preprocessing (removing punctuation and stopwards, tokenization, lemmatization) is handled by the exploratory Jupyter Notebooks. chinese_gpt2_train.py is based on code written by [Dinne Bosman](https://dwjbosman.github.io/chatbot-using-open-ai-gpt-2-transformer-model/) and [Keisuke Sato](https://dev.to/ksk0629/my-own-chatbot-by-fine-tuning-gpt-2-m0n).
+This chatbot is powered by text data from the New York Times. By leveraging article content, headlines, and other available data, it provides users with information and summaries about various topics. Text data preprocessing (removing punctuation and stopwards, tokenization, lemmatization) is handled by the exploratory Jupyter Notebooks. **chinese_gpt2_train.py** is based on code written by [Dinne Bosman](https://dwjbosman.github.io/chatbot-using-open-ai-gpt-2-transformer-model/) and [Keisuke Sato](https://dev.to/ksk0629/my-own-chatbot-by-fine-tuning-gpt-2-m0n).
 
 ### Usage
 
 - Create your own New York Times API key. To find more information about the New York Times's API, please visit [New York Times Dev Portal](https://developer.nytimes.com).
-- Run the following command in the chatbot-training directory to start the NYT chatbot: `python chinese_gpt2_train.py`
+- Run the following command in the **chatbot-training** directory to start the NYT chatbot: `python chinese_gpt2_train.py`
 
