@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 logging.basicConfig(level=logging.DEBUG)
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 messages = [{"role": "system", "content": "You are a helpful assistant."}]
 

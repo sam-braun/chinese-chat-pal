@@ -1,8 +1,8 @@
 .inputWrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .inputGroup {
@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: space-between;
 }
-        
+
 #container {
     display: flex;
     justify-content: space-around;
@@ -39,13 +39,13 @@ button {
 }
 
 body {
-    /* background-image: url('templates/TheGreatWall_HaoWei.jpg'); */
+    background-image: url('templates/TheGreatWall_HaoWei');
     /* background-image: url('TheGreatWall_HaoWei.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    background-color: #ffae00;
+    /* background-color: #ffae00; */
 }
 
 .checkboxes {
@@ -65,6 +65,7 @@ body {
     max-height: 400px;
     overflow-y: auto;
     font-size: 18px;
+    /* border: 1px solid #ccc; */
     padding: 10px;
 }
 
@@ -72,5 +73,8 @@ body {
     max-height: 400px;
     overflow-y: auto;
     font-size: 18px;
+    /* border: 1px solid #ccc; */
     padding: 10px;
 }
+
+
