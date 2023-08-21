@@ -30,8 +30,8 @@ This chatbot utilizes OpenAI's GPT-3.5 Turbo LLM via OpenAI's API and translates
 
 ### Usage
 
-- Create your own OpenAI API key by making an [OpenAI](https://platform.openai.com/docs/api-reference/introduction) developer account.
-- Run the following command in the **gpt3.5-chatbot** directory to start the OpenAI chatbot: `python chinese_chat_pal.py`
+1. Create your own OpenAI API key by making an [OpenAI](https://platform.openai.com/docs/api-reference/introduction) developer account.
+2. Run the following command in the **gpt3.5-chatbot** directory to start the OpenAI chatbot: `python chinese_chat_pal.py`
 
 
 
