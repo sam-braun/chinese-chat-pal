@@ -7,85 +7,90 @@
     
     <style>
         .inputWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
 
-.inputGroup {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+        .inputGroup {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-#container {
-    display: flex;
-    justify-content: space-around;
-}
+        #container {
+            display: flex;
+            justify-content: space-around;
+        }
 
-#chatSection {
-    width: 60%;
-}
+        #chatSection {
+            width: 60%;
+        }
 
-#noteSection {
-    width: 30%;
-}
+        #noteSection {
+            width: 30%;
+        }
 
-textarea {
-    width: 70%;
-    font-size: 18px;
-    resize: vertical;
-    flex-grow: 1;
-    margin-right: 10px;
-}
+        textarea {
+            height: 50px; /* match height of button */
+            width: 70%;
+            font-size: 18px;
+            resize: vertical;
+            flex-grow: 1;
+            margin-right: 10px;
+        }
 
-button {
-    width: 25%;
-    font-size: 18px;
-    padding: 15px 30px;
-}
-
-body {
-    background-image: url('templates/TheGreatWall_HaoWei');
-    /* background-image: url('TheGreatWall_HaoWei.jpg'); */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    background-color: #ffae00;
-}
-
-.checkboxes {
-    margin: 10px 0; 
-    height: 40px;
-}
-
-.chatHeading {
-    height: 30px;
-}
-
-.notesHeading {
-    height: 70px; 
-}
-
-#chatbox {
-    max-height: 400px;
-    overflow-y: auto;
-    font-size: 18px;
-    /* border: 1px solid #ccc; */
-    padding: 10px;
-}
-
-#notesbox {
-    max-height: 400px;
-    overflow-y: auto;
-    font-size: 18px;
-    /* border: 1px solid #ccc; */
-    padding: 10px;
-}
+        button {
+            height: 50px;
+            width: 50px;
+            font-size: 18px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
 
+        body {
+            background-image: url("../static/TheGreatWall_HaoWei.jpeg");
+
+            /* background-image: url("{{ url_for('static', filename='TheGreatWall_HaoWei.jpeg') }}"); */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            /* background-color: #ffae00; */
+        }
+
+        .checkboxes {
+            margin: 10px 0; 
+            height: 40px;
+        }
+
+        .chatHeading {
+            height: 30px;
+        }
+
+        .notesHeading {
+            height: 70px; 
+        }
+
+        #chatbox {
+            max-height: 400px;
+            overflow-y: auto;
+            font-size: 18px;
+            /* border: 1px solid #ccc; */
+            padding: 10px;
+        }
+
+        #notesbox {
+            max-height: 400px;
+            overflow-y: auto;
+            font-size: 18px;
+            /* border: 1px solid #ccc; */
+            padding: 10px;
+        }
 
     </style>
 
@@ -123,7 +128,7 @@ body {
         </div>
     </div>
     
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     
 </body>
 </html>
