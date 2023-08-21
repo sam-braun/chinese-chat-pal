@@ -19,6 +19,15 @@
             justify-content: space-between;
         }
 
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h3.chatHeading, h3.notesHeading {
+            font-size: 2em;
+            margin-top: 0;
+        }
+        
         #container {
             display: flex;
             justify-content: space-around;
@@ -26,11 +35,23 @@
 
         #chatSection {
             width: 60%;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         #noteSection {
             width: 30%;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
+        #container > div:not(:last-child) {
+            margin-right: 20px;
+        }   
 
         textarea {
             height: 50px; /* match height of button */
@@ -49,6 +70,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 30px;
         }
 
 
@@ -113,17 +135,17 @@
             <div id="chatbox"></div>
             <div class="inputGroup">
                 <textarea id="userMessage" rows="4" placeholder="Type your message..."></textarea>
-                <button onclick="sendMessage()">✈</button>
+                <button onclick="sendMessage()">⮕</button>
             </div>            
         </div>
     
         <!-- Notebook Section -->
         <div id="noteSection">
-            <h3 class="notesHeading">Notesbook</h3>
+            <h3 class="notesHeading">Notebook</h3>
             <div id="notesbox"></div>
             <div class="inputGroup">
-                <textarea id="userNote" rows="4" placeholder="Type your note..."></textarea>
-                <button onclick="addNote()">✏</button>
+                <textarea id="userNote" rows="4" placeholder="Add a note..."></textarea>
+                <button onclick="addNote()">✍</button>
             </div>
         </div>
     </div>

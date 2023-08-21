@@ -19,7 +19,7 @@ function sendMessage() {
     const showSimplified = document.getElementById("showSimplified").checked;
 
     const currentTime = new Date().toLocaleTimeString();
-    chatbox.innerHTML += `<p><strong>[${currentTime} - You]:</strong>${userMessage}</p>`;
+    chatbox.innerHTML += `<p><strong>[${currentTime} - You]:</strong><br>${userMessage}</p>`;
     document.getElementById("userMessage").value = "";
 
     fetch('/ask', {
@@ -41,7 +41,7 @@ function sendMessage() {
         }
         
         const currentTime = new Date().toLocaleTimeString();
-        let gptResponse = `<p><FONT COLOR="5E0202"><strong>[${currentTime} - GPT-3]:</strong>`;
+        let gptResponse = `<p><FONT COLOR="AD291F"><strong>[${currentTime} - GPT-3]:</strong>`;
 
         if (data.chinese) {
             gptResponse += ` <br><strong>中文: </strong>${data.chinese}`;
