@@ -1,16 +1,12 @@
-# Your training code
 import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel, TextDataset, DataCollatorForLanguageModeling, TrainingArguments, Trainer
 
-# ... (rest of your training code)
-
-# Save the trained model
+# Save trained model
 path_to_model = '/Users/samuelbraun/Desktop/ProjectA1_NYT/nyt_gpt2_model'
 tokenizer = GPT2Tokenizer.from_pretrained(path_to_model)
 model = GPT2LMHeadModel.from_pretrained(path_to_model)
 
-
-# Interaction with the trained model starts here
+# Interaction with trained model
 model = GPT2LMHeadModel.from_pretrained('./nyt_gpt2_model')
 tokenizer = GPT2Tokenizer.from_pretrained('./nyt_gpt2_model')
 
